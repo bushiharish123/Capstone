@@ -6,6 +6,8 @@ interface IRatingAthlet extends Document {
     rating: number;   // The rating value, typically between 1 and 5
     feedback?: string; // Optional feedback or comments about the agent
     createdAt: Date;  // Timestamp of when the rating was created
+    firstname:string;
+    lastname:string;
 }
 
 const AthletRatingSchema: Schema = new Schema({
@@ -13,7 +15,9 @@ const AthletRatingSchema: Schema = new Schema({
     userId: { type: String, ref: 'User', required: true }, // Corrected to ObjectId
   rating: { type: Number, required: true, min: 1, max: 5 },
   feedback: { type: String, required: false },
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  firstname:{type:String,required:false},
+  lastname:{type:String,required:false}
   });
   
 
